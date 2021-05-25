@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz</title>
+    <link rel='stylesheet' href='/stylesheets/quizStyle.css' />
+</head>
+
+<body>
+    <h1>
+        <%= quiz.quizName %>
+    </h1>
+    <div>
+        <br><br>
+        <% if(creator){ %>
+            <a href="/edit_quiz/<%=quizId%>/<%=fetchingId%>"><button>edit</button></a>
+            <br><br>
+            <%}%>
+    </div>
+    <div class="quiz-form">
+        <form action="/quiz" method="post">
+            <% var i=1,j=0 %>
+                <% quiz.quiz.forEach((el)=>{ %>
+                    <div class="quiz-box">
+                        <p>
+                            <%= `${j+1}. ${el.qn} ?` %>
+                        </p>
+                        <input id="<%=i+1%>" type="radio" name="<%=j%>" value="<%= el.a1 %>">
+                        <label for="<%=i+1%>">
+                            <%= el.a1 %>
+                        </label><br>
+                        <input id="<%=i+2%>" type="radio" name="<%=j%>" value="<%= el.a2 %>">
+                        <label for="<%=i+2%>">
+                            <%= el.a2 %>
+                        </label><br>
+                        <input id="<%=i+3%>" type="radio" name="<%=j%>" value="<%= el.a3 %>">
+                        <label for="<%=i+3%>">
+                            <%= el.a3 %>
+                        </label><br>
+                        <input id="<%=i+4%>" type="radio" name="<%=j%>" value="<%= el.a4 %>">
+                        <label for="<%=i+4%>">
+                            <%= el.a4 %>
+                        </label><br><br><br>
+                    </div>
+                    <% i=i+10;j++})%>
+                        <br><br>
+                        <button type="submit">Submit</button>
+                        <br><br>
+        </form>
+    </div>
+    <a href="/"><button>back</button></a>
+</body>
+
+</html>

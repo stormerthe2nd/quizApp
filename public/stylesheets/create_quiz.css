@@ -1,0 +1,16 @@
+.qns{
+    background-color: cadetblue;
+    width:400px;
+    float: left;
+    margin: 2em;
+}
+
+.submit{
+    position:fixed;
+    bottom: 20px;
+}
+
+.select ::before{
+    content: "Correct Option";
+    color: darkred;
+}

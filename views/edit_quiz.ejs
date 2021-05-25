@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="/stylesheets/commons.css">
+    <link rel="stylesheet" href="/stylesheets/quizStyle.css">
+</head>
+
+<body>
+    <b>
+        <%=flash%>
+    </b>
+    <br><br>
+    <div class="quiz-form">
+        <% var i=0%>
+            <form action="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>" method="post">
+                <h1 id="quizName">
+                    edit <%=quiz.quizName%>
+                </h1>
+                <label for="quizName" class="changers">edit name</label>
+                <% quiz.quiz.forEach(el=>{ %>
+                    <div class="quiz-box">
+                        <h4 class="h4" id="<%='qn'+i%>">
+                            <%= `Question ${i+1}. ${el.qn}` %>
+                        </h4>
+                        <label class="changers" for="<%='qn'+i%>">
+                            <%=`edit question ${i+1}`%>
+                        </label><br>
+                        <p id="<%='a1'+i%>">
+                            <%= `Option 1. ${el.a1}` %>
+                        </p>
+                        <label class="changers" for="<%='a1'+i%>">
+                            <%=`edit Option 1`%>
+                        </label><br>
+                        <p id="<%='a2'+i%>">
+                            <%= `Option 2. ${el.a2}` %>
+                        </p>
+                        <label class="changers" for="<%='a2'+i%>">
+                            <%=`edit Option 2`%>
+                        </label><br>
+                        <p id="<%='a3'+i%>">
+                            <%= `Option 3. ${el.a3}` %>
+                        </p>
+                        <label class="changers" for="<%='a3'+i%>">
+                            <%=`edit Option 3`%>
+                        </label><br>
+                        <p id="<%='a4'+i%>">
+                            <%= `Option 4. ${el.a4}` %>
+                        </p>
+                        <label class="changers" for="<%='a4'+i%>">
+                            <%=`edit Option 4`%>
+                        </label><br>
+                        <p id="<%='corr'+i%>">
+                            <%= `correct answer '${el.corr}' ` %>
+                        </p>
+                        <label class="changers" for="<%='corr'+i%>">
+                            <%=`edit correct answer`%>
+                        </label><br>
+                    </div>
+                    <%if (quiz.quiz.length> 1){%>
+                        <input type="submit" value="Delete this"
+                            formaction="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>/delete/<%=i%>">
+                        <%}%>
+                            <% i++}) %>
+                                <br><br>
+                                <input type="submit" value="Save Changes">
+                                <input type="submit" value="Delete"
+                                    formaction="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>/delete">
+            </form>
+    </div>
+</body>
+<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/javascripts/edit_quiz.js"></script>
+
+</html>

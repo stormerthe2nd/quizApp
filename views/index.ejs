@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/indexStyle.css' />
+    <link rel='stylesheet' href='/stylesheets/quiz_container.css' />
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to <%= title %>
+    </p>
+    <div>
+        <% if (user){ %>
+            <a href="/your_quiz">View Your Quiz</a><br>
+            <a href="/logout">Logout</a>
+            <% }else{ %>
+                <a href="/login">Login</a><br>
+                <a href="/register">Register</a>
+                <% } %>
+                    <br>
+                    <a href="/create_quiz">Create</a>
+    </div>
+    <br><br>
+    <h3>
+        <%=indexMsg%>
+    </h3>
+    <br><br>
+    <div class="quiz-container">
+        <% accounts.forEach((el)=>{ %>
+            <div onclick="location.href=`/quiz/<%=el.quizId%>/<%=el.fetchingId%>`" class="quiz-objects">
+                <p class="quiz-name">
+                    <%=el.quizName%>
+                </p>
+            </div>
+            <% }) %>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/javascripts/quiz_container.js"></script>
+
+</html>
