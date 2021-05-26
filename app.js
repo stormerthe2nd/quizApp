@@ -1,5 +1,5 @@
 require('dotenv').config()
-const DB_URL = "mongodb+srv://project1:neverarrogant4$@firstcluster.lpuvi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const DB_URL = "mongodb+srv://project1:ewlHYawrtv7MyWGS@firstcluster.lpuvi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');

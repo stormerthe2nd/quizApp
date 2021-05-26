@@ -1,15 +1,10 @@
 .quiz-container{
     height: auto;
-    border: 1px solid black;
     overflow: auto;
     overflow: hidden;
   }
 .quiz-objects {
-    width: 6em;
-    height: 6em;
-    border: solid black 2px;
     margin: 2em;
-    background-color: firebrick;
     cursor: pointer;
     float: left;
     white-space: normal;
