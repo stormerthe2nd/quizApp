@@ -1,9 +1,21 @@
 body {
-  padding:50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(248, 222, 222);
+  background-color: rgb(116, 16, 129);
+}
+.index-body {
+    padding: 20px;
 }
 
-a {
-  color: #00B7FF;
+.index-header{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 50px;
 }
+
+.app-logo{
+    color: azure;
+    font-size:xx-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
