@@ -16,43 +16,12 @@
 </head>
 
 <body>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/images/img1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption">
-                    <a href="/" style="text-decoration: none;">
-                        <p class="app-logo">&nbsp<%=title%>&nbsp</p>
-                    </a>
-                    <p>lets play some quiz</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/images/img2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption">
-                    <a href="/" style="text-decoration: none;">
-                        <p class="app-logo">&nbsp<%=title%>&nbsp</p>
-                    </a>
-                    <p>create your own quiz and share it with your freinds</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/images/img3.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption">
-                    <a href="/" style="text-decoration: none;">
-                        <p class="app-logo">&nbsp<%=title%>&nbsp</p>
-                    </a>
-                    <p>hope you're having a great day</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="index-body">
         <div class="index-header">
             <nav class="navbar navbar-expand-lg navbar-light" style="border-radius: 1em;">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/">
-                        Welcome <%=user||""%>
+                    <a class="navbar-brand" href="/" style="font-size:xx-large;">
+                        Quiz App
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -80,30 +49,35 @@
                                         <% } %>
                             </li>
                             <li class="nav-item">
-                                <% if (user){ %>
-                                    <a class="nav-link active" aria-current="page" href="/create_quiz"><button
-                                            type="button" class="btn btn-outline-dark">Create</button></a>
-                                    <% }else{ %>
-                                        <a class="nav-link disabled" href="/create_quiz" tabindex="-1"
-                                            aria-disabled="true"><button type="button"
-                                                class="btn btn-outline-dark">Create</button></a>
-                                        <% } %>
+                                <a class="nav-link active" aria-current="page" href="/create_quiz"><button type="button"
+                                        class="btn btn-outline-dark">Create</button></a>
                             </li>
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <button class="btn btn-outline-info" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
             </nav>
+        </div>
+        <div class="middle-div">
+            <h2>Welcome to Quiz App</h2>
+            <div class="split-line"></div>
+            <p class="username">
+                <%=user%>
+            </p>
+        </div>
+        <div style="text-align: center;">
+            <p style="font-size: large;font-family:cursive;">Here are some random Quizs to play</p>
         </div>
         <br><br>
         <div class="quiz-container">
             <% accounts.forEach((el)=>{ %>
                 <div class="card text-dark bg-light mb-3 quiz-objects" style="width: 12rem; height: 10rem;"
                     onclick="location.href=`/quiz/<%=el.quizId%>/<%=el.fetchingId%>`">
-                    <div class="card-body quiz-box" style="background-color: blueviolet;">
+                    <div class="card-body quiz-box"
+                        style="background-image: linear-gradient(rgb(111, 125, 206),rgb(170, 16, 137));">
                         <h5 class="card-title"></h5>
                         <p class="card-text"></p>
                     </div>
@@ -113,8 +87,9 @@
                 </div>
                 <% }) %>
         </div>
-
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>

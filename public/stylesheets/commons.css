@@ -1,6 +1,6 @@
 body{
-    background-color: #3e2e50; 
-    font-size: large;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(to right, rgb(50, 49, 117),rgb(255, 3, 171),rgb(99, 7, 122)) ;
 }
 
 .changers{
