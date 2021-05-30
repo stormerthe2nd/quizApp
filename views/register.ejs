@@ -2,33 +2,58 @@
 <html>
 
 <head>
-    <title>
-        <%= "Register" %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/indexStyle.css' />
+    <title>Register</title>
+    <link rel='stylesheet' href='/stylesheets/loginStyle.css' />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body>
-    <h1>Register</h1>
-    <form action="/register" method="post">
-        <br><br>
-        <label for="username">Enter a Username</label><br>
-        <input type="text" name="username" required>
-        <br><br>
-        <label for="email">Enter a Valid Email</label><br>
-        <input type="email" name="email" required>
-        <br><br>
-        <label for="paswd">Create a Strong Password</label><br>
-        <input type="password" name="paswd" required>
-        <br><br>
-        <input type="submit" value="Create">
-    </form>
-    <br>
-    <a href="/login">Login</a>
-    <br><br>
-    <p>
-        <%=flash%>
-    </p>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="Register" />
+            </div>
+
+            <!-- Login Form -->
+            <form action="/register" method="POST">
+                <input type="text" id="login" class="fadeIn second" name="username" placeholder="username" required>
+                <input type="email" id="login" class="fadeIn second" name="email" placeholder="email" required>
+                <input type="password" id="password" class="fadeIn third" name="paswd" placeholder="password" required>
+                <input type="text" id="password" class="fadeIn third" name="paswd2" placeholder="confirm password"
+                    required>
+                <div class="fadeIn fourth" style="margin-top: 2px; margin-inline: 8%;">
+                    <%if (flash=="Account Created" ){%>
+                        <div class="alert alert-success" role="alert">
+                            <%=flash%> you can now <a href="/login" class="alert-link"> login</a>
+                        </div>
+                        <%}else if (flash!="" ) {%>
+                            <div class="alert alert-danger" role="alert">
+                                <%=flash%>
+                            </div>
+                            <%}%>
+                </div>
+                <input type="submit" class="fadeIn fourth" value="Register">
+            </form>
+
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">already a member?
+                <br><br>
+                <a href="/"><button type="button" class="btn btn-secondary">back home</button></a>
+                <a class="underlineHover" href="/login"><button type="button" class="btn btn-primary">Login</button></a>
+            </div>
+
+
+
+        </div>
+    </div>
 </body>
 
 </html>

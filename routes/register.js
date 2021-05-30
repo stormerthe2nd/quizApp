@@ -8,10 +8,14 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', async function (req, res) {
-    const { username, email, paswd } = req.body
+    const { username, email, paswd, paswd2 } = req.body
     var exists = await user.find({ 'email': email })
     if (exists[0]) {
         req.flash("msg", "This Email Address is already in use, Login Instead")
+        return res.redirect('/register')
+    }
+    if (paswd != paswd2) {
+        req.flash("msg", "passwords do not match")
         return res.redirect('/register')
     }
     await new user({
