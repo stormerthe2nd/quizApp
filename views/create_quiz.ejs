@@ -17,8 +17,13 @@
             Question Box
         </div>
         <div class="card-body">
+            <div class="remove-box">
+
+            </div>
             <form action="/create_quiz" method="post" id="ultimate-form">
                 <div class="qns">
+                    <label class="qn-num">Question 1</label>
+
                     <div class="form-group">
                         <div class="col-auto">
                             <input type="text" name="quizName" class="form-control mb-1 input-obj" id="quizName"
@@ -55,24 +60,25 @@
                                 placeholder="option 4" required>
                         </div>
                     </div>
-                    <select class="custom-select custom-select-sm" name="corr">
+                    <label for="">Select the correct option</label>
+                    <select class="form-select" aria-label="Default select example" name="corr">
                         <option value="a1">Option 1</option>
                         <option value="a2">Option 2</option>
                         <option value="a3">Option 3</option>
                         <option value="a4">Option 4</option>
                     </select>
-
+                    <div class="split-line" style="margin-top: 1em;"></div>
                 </div>
                 <div class="submit">
-                    <input type="submit" value="Submit">
+                    <input id="sub-btn" class="btn btn-primary" type="submit" value="Create" style="width: 80%;">
                 </div>
             </form>
         </div>
         <div class="card-footer text-muted">
+            <button type="button" id="panel" style="width: 80%;" class="btn btn-outline-dark">Add</button>
         </div>
     </div>
 
-    <button type="button" id="panel" class="btn btn-primary">new panel</button>
     <!-- TODO changing value of name and id -->
 
 </body>

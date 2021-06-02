@@ -4,6 +4,11 @@ body{
     display:grid;
     place-content: center;
     margin-top: 50px;
+    position: relative;
+}
+
+#panel{
+    margin-bottom: 3em;
 }
 
 
@@ -32,7 +37,16 @@ body{
 }
 
 .submit{
-    position:fixed;
-    bottom: 20px;
+    position:absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
 }
 
+.split-line{
+    background-color: black;
+    height: 2px;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;    
+}

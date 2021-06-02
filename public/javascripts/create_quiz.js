@@ -1,7 +1,22 @@
 $(document).ready(function () {
+    console.log("hello world")
+    const qns = $(".qns")
+    var count = 1
     $("#panel").click(function () {
-        $(".create-body").clone().appendTo("body")
+        count++
+        newQns = qns.clone()
+        newQns.attr("id", `qns${count}`)
+        $(`<button class="remove">question ${count}</button>`).appendTo(".remove-box")
+        $(".remove").click(function () {
+            $(`#qns${Number($(this).text().slice(-1))}`).remove()
+            $(this).remove()
+            count = count - 1
+        })// not good try to delete element from the list instead of id numbers
+        newQns.find(".qn-num").text(`Question ${count}`)
+        newQns.appendTo("#ultimate-form")
     })
+
+
 })
 
 // $(document).ready(function () {
