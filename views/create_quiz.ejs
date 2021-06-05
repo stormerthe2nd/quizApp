@@ -5,43 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/create_quiz.css' />
     <title>Create</title>
 </head>
 
-<body style="background-color: darkgoldenrod;">
-    <div class="container">
-        <form action="/create_quiz" method="post" id="ultimate-form">
-            <div class="qns">
-                <label for="quizName">provide your quiz a name to display</label>
-                <input type="text" name="quizName" required>
-                <label for="qn">Question</label>
-                <input type="text" name="qn" required>
-                <label for="a1">Option 1</label>
-                <input type="text" name="a1" required>
-                <label for="a2">Option 2</label>
-                <input type="text" name="a2" required>
-                <label for="a3">Option 3</label>
-                <input type="text" name="a3" required>
-                <label for="a4">Option 4</label>
-                <input type="text" name="a4" required>
-                <label for="corr">select the correct option</label>
-                <select name="corr">
-                    <option value="a1">Option 1</option>
-                    <option value="a2">Option 2</option>
-                    <option value="a3">Option 3</option>
-                    <option value="a4">Option 4</option>
-                </select><br><br>
+<body>
+    <div class="card text-center create-body">
+        <div class="card-header">
+            <a href="/"><button class="btn btn-secondary btn-sm"
+                    style="position: absolute;left: 0;top: 0;">back</button></a>
+            Question Box
+        </div>
+        <div class="card-body">
+            <div class=" custom-form-container">
+
+                <form action="/create_quiz" method="post" id="ultimate-form">
+                    <div class="qns">
+                        <div class="p-qns"> Question 1</div>
+                        <input class="form-control" type="text" name="quizName"
+                            placeholder="a name for your quiz to display" required>
+                        <input class="form-control" type="text" name="qn" placeholder="question" required>
+                        <input class="form-control" type="text" name="a1" placeholder="option 1" required>
+                        <input class="form-control" type="text" name="a2" placeholder="option 2" required>
+                        <input class="form-control" type="text" name="a3" placeholder="option 3" required>
+                        <input class="form-control" type="text" name="a4" placeholder="option 4" required>
+                        <select class="form-select" aria-label="Default select example" name="corr">
+                            <option value="a1">Option 1</option>
+                            <option value="a2">Option 2</option>
+                            <option value="a3">Option 3</option>
+                            <option value="a4">Option 4</option>
+                        </select><br><br>
+                    </div>
+                    <div class="submit">
+                        <input class="btn btn-primary" style="width: 80%;" type="submit" value="Submit">
+                    </div>
+                </form>
             </div>
-            <div class="submit">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-        <div>
-            <Button id="new-quiz-panel">New Panel</Button>
+        </div>
+        <div class="card-footer text-muted">
+            <button type="button" id="new-quiz-panel" style="width: 80%;" class="btn btn-outline-dark">Add</button>
         </div>
     </div>
+
+    <!-- TODO changing value of name and id -->
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/javascripts/create_quiz.js"></script>
 

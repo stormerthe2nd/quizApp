@@ -1,16 +1,65 @@
+body{
+    background-image: linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136)) ;
+    padding: 2%;
+    display:grid;
+    place-content: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#new-quiz-panel{
+    margin-bottom: 3em;
+}
+
+
+
+@media screen and (min-width: 980px) /* Desktop */ {
+    .create-body{
+        width: 600px;
+    }
+    
+  }
+
+  @media screen  and (max-width: 979px) /* Tablet */ {
+    .create-body{
+        width: 600px;
+    }
+  }
+   
+  @media screen and (max-width: 500px) /* Mobile */ {
+    .create-body{
+        width: auto;
+    }
+  }
+
+
 .qns{
-    background-color: cadetblue;
-    width:400px;
-    float: left;
-    margin: 2em;
+    margin-inline: 2em;
 }
 
 .submit{
-    position:fixed;
-    bottom: 20px;
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
-.select ::before{
-    content: "Correct Option";
-    color: darkred;
+.split-line{
+    background-color: black;
+    height: 2px;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;    
+}
+
+.cancel{
+    margin-right:1em;
+    position: absolute;
+    right: 0;
 }
