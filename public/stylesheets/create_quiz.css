@@ -7,9 +7,16 @@ body{
     position: relative;
 }
 
-#panel{
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#new-quiz-panel{
     margin-bottom: 3em;
 }
+
 
 
 @media screen and (min-width: 980px) /* Desktop */ {
@@ -39,7 +46,7 @@ body{
 .submit{
     position:absolute;
     left: 0;
-    bottom: 5px;
+    bottom: 0;
     width: 100%;
 }
 
@@ -49,4 +56,10 @@ body{
     width: 100%;
     margin-top: 2em;
     margin-bottom: 2em;    
+}
+
+.cancel{
+    margin-right:1em;
+    position: absolute;
+    right: 0;
 }

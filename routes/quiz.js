@@ -4,11 +4,10 @@ var quizModel = require("../model/quiz_model")
 
 router.post("/", async function (req, res) {
     var givenQns = Object.keys(req.body)
-    var chosenOptions = Object.values(req.body)
     var counter = 0
     var quiz = router.quiz
     for (i of givenQns) {
-        quiz[i].corr == chosenOptions[i] ? counter++ : {}
+        quiz[i].corr == req.body[i] ? counter++ : {}
     }
     let score = `${counter}|${quiz.length}`
     res.redirect(`/quiz/${router.quizId}/${router.fetchingId}/${score}`)

@@ -14,68 +14,38 @@
 <body>
     <div class="card text-center create-body">
         <div class="card-header">
+            <a href="/"><button class="btn btn-secondary btn-sm"
+                    style="position: absolute;left: 0;top: 0;">back</button></a>
             Question Box
         </div>
         <div class="card-body">
-            <div class="remove-box">
+            <div class=" custom-form-container">
 
+                <form action="/create_quiz" method="post" id="ultimate-form">
+                    <div class="qns">
+                        <div class="p-qns"> Question 1</div>
+                        <input class="form-control" type="text" name="quizName"
+                            placeholder="a name for your quiz to display" required>
+                        <input class="form-control" type="text" name="qn" placeholder="question" required>
+                        <input class="form-control" type="text" name="a1" placeholder="option 1" required>
+                        <input class="form-control" type="text" name="a2" placeholder="option 2" required>
+                        <input class="form-control" type="text" name="a3" placeholder="option 3" required>
+                        <input class="form-control" type="text" name="a4" placeholder="option 4" required>
+                        <select class="form-select" aria-label="Default select example" name="corr">
+                            <option value="a1">Option 1</option>
+                            <option value="a2">Option 2</option>
+                            <option value="a3">Option 3</option>
+                            <option value="a4">Option 4</option>
+                        </select><br><br>
+                    </div>
+                    <div class="submit">
+                        <input class="btn btn-primary" style="width: 80%;" type="submit" value="Submit">
+                    </div>
+                </form>
             </div>
-            <form action="/create_quiz" method="post" id="ultimate-form">
-                <div class="qns">
-                    <label class="qn-num">Question 1</label>
-
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <input type="text" name="quizName" class="form-control mb-1 input-obj" id="quizName"
-                                placeholder="a name to display your quiz" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <input type="text" name="qn" class="form-control mb-1 input-obj" id="qn"
-                                placeholder="question" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <input type="text" name="a1" class="form-control mb-1 input-obj" id="a1"
-                                placeholder="option 1" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <input type="text" name="a2" class="form-control mb-1 input-obj" id="a2"
-                                placeholder="option 2" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <input type="text" name="a3" class="form-control mb-1 input-obj" id="a3"
-                                placeholder="option 3" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <input type="text" name="a4" class="form-control mb-1 input-obj" id="a4"
-                                placeholder="option 4" required>
-                        </div>
-                    </div>
-                    <label for="">Select the correct option</label>
-                    <select class="form-select" aria-label="Default select example" name="corr">
-                        <option value="a1">Option 1</option>
-                        <option value="a2">Option 2</option>
-                        <option value="a3">Option 3</option>
-                        <option value="a4">Option 4</option>
-                    </select>
-                    <div class="split-line" style="margin-top: 1em;"></div>
-                </div>
-                <div class="submit">
-                    <input id="sub-btn" class="btn btn-primary" type="submit" value="Create" style="width: 80%;">
-                </div>
-            </form>
         </div>
         <div class="card-footer text-muted">
-            <button type="button" id="panel" style="width: 80%;" class="btn btn-outline-dark">Add</button>
+            <button type="button" id="new-quiz-panel" style="width: 80%;" class="btn btn-outline-dark">Add</button>
         </div>
     </div>
 

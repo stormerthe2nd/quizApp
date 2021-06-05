@@ -10,6 +10,7 @@ router.get("/", function (req, res) {
 router.post("/", async function (req, res) {
     var email = await acc.find({ _id: req.session.userId })
     email = email[0]
+    console.log("req.body-->", req.body)
     var quizData = {
         quizName: req.body.quizName,
         quiz: null,
@@ -33,6 +34,7 @@ router.post("/", async function (req, res) {
         })
     }
     quizData.quiz = preparedList
+    console.log("quizData -->", quizData)
     await quiz.findOneAndUpdate({ email: email.email },
         {
             $addToSet: { quiz: quizData }
