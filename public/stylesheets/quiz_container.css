@@ -1,16 +1,41 @@
-.quiz-container{
-    height: auto;
-    overflow: auto;
-    overflow: hidden;
-  }
-.quiz-objects {
-    margin: 2em;
-    cursor: pointer;
-    float: left;
-    white-space: normal;
+
+
+@media screen and (min-width: 980px) /* Desktop */ {
+    .quiz-container{
+        height: auto;
+        overflow: auto;
+        overflow: hidden;
+      }
+    .quiz-objects {
+        margin: 2em;
+        cursor: pointer;
+        float: left;
+        white-space: normal;
+      }
+    
+    .quiz-name{
+        margin-top: 6.2em;
+        text-align: center;
+      }
+    
   }
 
-.quiz-name{
-    margin-top: 6.2em;
-    text-align: center;
+  @media screen and (max-width: 500px) /* Mobile */ {
+    .quiz-container{
+        height: auto;
+        overflow: auto;
+        overflow: hidden;
+      }
+    .quiz-objects {
+        margin: 2em;
+        cursor: pointer;
+        float: left;
+        white-space: normal;
+      }
+    
+    .quiz-name{
+        margin-top: 6.2em;
+        text-align: center;
+      }
   }
+
