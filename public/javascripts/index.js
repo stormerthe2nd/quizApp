@@ -1,5 +1,25 @@
-
+// TODO your quiz offcanvas does not animate
 $(document).ready(function () {
+    $("#your-quiz-offcanvas").click(function () {
+        $(".quiz-container-offcanvas").empty()
+        $.get(`your_quiz/view_my_quiz/json/${id}`, function (data, status) {
+            var your_quiz = data.your_quiz
+            your_quiz.forEach(el => {
+                $(`
+                <div class="card text-dark bg-light mb-3 quiz-objects-offcanvas"
+                    onclick="location.href='/quiz/${id}/${el.fetchingId}'">
+                    <div class="card-body quiz-box">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                    </div >
+                    <div class="card-header" style="text-align: center;">
+                        ${el.quizName}
+                    </div>
+                </div >
+                `).appendTo(".quiz-container-offcanvas")
+            });
+        });
+    })
     $(".quiz-box").mouseenter(function () {
         $(this).css({ "animation-name": "example", "background-image": "linear-gradient(#ff00cc,#333399" })
     }).mouseleave(function () {

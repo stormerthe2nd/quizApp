@@ -12,7 +12,7 @@ router.get('/', async function (req, res) {
         quizData.push.apply(quizData, eachQuiz);
     });
     quizData.sort(function () { return 0.5 - Math.random() });
-    res.render('index', { indexMsg: req.flash("indexMsg"), title: 'Quiz App', accounts: quizData, user: req.session.user });
+    res.render('index', { indexMsg: req.flash("indexMsg"), title: 'Quiz App', accounts: quizData, user: req.session.user, userId: req.session.userId, your_quiz: [] });
 });
 
 module.exports = router;
