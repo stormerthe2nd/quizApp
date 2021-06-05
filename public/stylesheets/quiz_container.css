@@ -1,3 +1,7 @@
+.quiz-box{
+    background-image: linear-gradient(rgb(111, 125, 206),rgb(170, 16, 137));
+}
+
 .quiz-container{
     height: auto;
     overflow: auto;
@@ -8,9 +12,40 @@
     cursor: pointer;
     float: left;
     white-space: normal;
+    width: 12rem; 
+    height: 10rem;
   }
 
 .quiz-name{
     margin-top: 6.2em;
     text-align: center;
+  }
+.quiz-container-offcanvas{
+    height: auto;
+    overflow: auto;
+    display: grid;
+    place-content: center;
+  }
+.quiz-objects-offcanvas {
+    margin: 2em;
+    cursor: pointer;
+    white-space: normal;
+    width: 16rem; 
+    height: 10rem;
+  }
+
+  @media screen and (max-width: 550px) /* Mobile */ {
+    .quiz-container{
+        height: auto;
+        overflow: auto;
+        display: grid;
+        place-content: center;
+      }
+    .quiz-objects {
+        margin: 2em;
+        cursor: pointer;
+        white-space: normal;
+        width: 16rem; 
+        height: 10rem;
+      }
   }

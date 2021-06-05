@@ -31,8 +31,10 @@ body {
     background-color: rgb(0, 0, 0,0.2);
     background-image: url("/images/img.jpg");
     text-align: center;
-    height: 200px;
+    height: auto;
+    min-height: 200px;
     border-radius: 10px;
+    overflow:auto;
 }
 
 h2{
@@ -47,5 +49,4 @@ h2{
     color: white;
     font-size: xx-large;
     font-weight: bold;
-    
 }
