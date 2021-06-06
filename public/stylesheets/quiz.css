@@ -1,0 +1,64 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136)) ;
+    display: grid;
+    place-content: center;
+  }
+
+
+.head{
+    color: lavender;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+}
+
+#head-p{
+    color: lavender;
+}
+
+.option{
+    position: relative;
+    display: inleft;
+    font-size: large;
+    margin-top: 5px;
+    overflow: auto;
+}
+
+.radio-inp{
+    margin-top: 1.3px;
+    margin-right: 7px;
+}
+
+.changers{
+    float: right;
+    font-size: large;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+@media screen and (min-width: 980px) /* Desktop */ {
+    .quiz-form{
+        width: 600px;
+    }
+    
+  }
+
+  @media screen  and (max-width: 979px) /* Tablet */ {
+    .quiz-form{
+        width: 500px;
+    }
+  }
+   
+  @media screen and (max-width: 500px) /* Mobile */ {
+    .quiz-form{
+        width: 300px    ;
+    }
+  }
+
+  @media screen and (max-width: 300px) /* Mobile */ {
+    .quiz-form{
+        width: 250px    ;
+    }
+  }
