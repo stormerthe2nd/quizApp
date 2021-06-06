@@ -2,53 +2,89 @@
 <html>
 
 <head>
-    <title>Quiz</title>
-    <link rel='stylesheet' href='/stylesheets/quizStyle.css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= quiz.quizName %>
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/quiz.css' />
 </head>
 
 <body>
-    <h1>
-        <%= quiz.quizName %>
-    </h1>
-    <div>
-        <br><br>
-        <% if(creator){ %>
-            <a href="/edit_quiz/<%=quizId%>/<%=fetchingId%>"><button>edit</button></a>
-            <br><br>
-            <%}%>
-    </div>
+    <header style="text-align: center;margin-top: 2em; margin-bottom: 3em;">
+        <h1 id="quizName" class="head">
+            <%= quiz.quizName %>
+        </h1>
+    </header>
     <div class="quiz-form">
         <form action="/quiz" method="post">
-            <% var i=1,j=0 %>
-                <% quiz.quiz.forEach((el)=>{ %>
-                    <div class="quiz-box">
-                        <p>
-                            <%= `${j+1}. ${el.qn} ?` %>
-                        </p>
-                        <input id="<%=i+1%>" type="radio" name="<%=j%>" value="<%= el.a1 %>">
-                        <label for="<%=i+1%>">
-                            <%= el.a1 %>
-                        </label><br>
-                        <input id="<%=i+2%>" type="radio" name="<%=j%>" value="<%= el.a2 %>">
-                        <label for="<%=i+2%>">
-                            <%= el.a2 %>
-                        </label><br>
-                        <input id="<%=i+3%>" type="radio" name="<%=j%>" value="<%= el.a3 %>">
-                        <label for="<%=i+3%>">
-                            <%= el.a3 %>
-                        </label><br>
-                        <input id="<%=i+4%>" type="radio" name="<%=j%>" value="<%= el.a4 %>">
-                        <label for="<%=i+4%>">
-                            <%= el.a4 %>
-                        </label><br><br><br>
-                    </div>
-                    <% i=i+10;j++})%>
-                        <br><br>
-                        <button type="submit">Submit</button>
-                        <br><br>
+            <div class="quiz-box">
+                <% var i=1,j=0 %>
+                    <% quiz.quiz.forEach((el)=>{ %>
+                        <div class="card mb-3" style="width: 100%;">
+                            <div class="card-header">
+                                <h4>
+                                    <%= `${j+1}. ${el.qn}` %>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="option">
+                                    <input class="form-check-input radio-inp" id="<%=i+1%>" type="radio" name="<%=j%>"
+                                        value="<%= el.a1 %>">
+                                    <label class="form-check-label" for="<%=i+1%>">
+                                        <%= el.a1 %>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <input class="form-check-input radio-inp" id="<%=i+2%>" type="radio" name="<%=j%>"
+                                        value="<%= el.a2 %>">
+                                    <label class="form-check-label" for="<%=i+2%>">
+                                        <%= el.a2 %>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <input class="form-check-input radio-inp" id="<%=i+3%>" type="radio" name="<%=j%>"
+                                        value="<%= el.a3 %>">
+                                    <label class="form-check-label" for="<%=i+3%>">
+                                        <%= el.a3 %>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <input class="form-check-input radio-inp" id="<%=i+4%>" type="radio" name="<%=j%>"
+                                        value="<%= el.a4 %>">
+                                    <label class="form-check-label" for="<%=i+4%>">
+                                        <%= el.a4 %>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <% i=i+10;j++})%>
+                            <br><br>
+                            <button class="btn btn-primary" type="submit" style="width: 100%;">Submit</button>
+                            <br><br>
         </form>
     </div>
-    <a href="/"><button>back</button></a>
+    </div>
+
+    <% if(creator){ %>
+        <div>
+            <a href="/"><button class="btn btn-secondary" style="width: 49%;">Home <i
+                        class="fa fa-home"></i></button></a>
+            <a href="/edit_quiz/<%=quizId%>/<%=fetchingId%>"><button type="button" class="btn btn-secondary"
+                    style="width: 49%;float: right;">Edit <i class="fa fa-pencil"></i></button></a>
+        </div>
+        <%}else{%>
+            <a href="/"><button class="btn btn-secondary" style="width: 100%;"><i class="fa fa-home"></i></button></a>
+            <%}%>
+                <footer style="margin-bottom: 3em;"></footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </html>

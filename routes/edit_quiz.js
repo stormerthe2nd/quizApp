@@ -49,6 +49,7 @@ router.post("/:quizId/:fetchingId", extractQuiz, async function (req, res) {
     var model = await quizModel.findOne({ _id: quizId })
     model.quiz = allQuiz.quiz
     await model.save()
+    req.flash("")
     res.redirect(`/edit_quiz/${quizId}/${fetchingId}`)
 })
 
