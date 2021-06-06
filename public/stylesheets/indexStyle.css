@@ -37,6 +37,11 @@ body {
     overflow:auto;
 }
 
+.loading-wheel{
+    margin-top: 50%;
+    margin-left: 45%;
+}
+
 h2{
     color: white;
     font-size: 4em;

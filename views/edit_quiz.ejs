@@ -7,71 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit</title>
     <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="stylesheet" href="/stylesheets/commons.css">
-    <link rel="stylesheet" href="/stylesheets/quizStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/quiz.css">
 </head>
 
 <body>
-    <b>
-        <%=flash%>
-    </b>
-    <br><br>
     <div class="quiz-form">
         <% var i=0%>
             <form action="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>" method="post">
-                <h1 id="quizName">
-                    edit <%=quiz.quizName%>
-                </h1>
-                <label for="quizName" class="changers">edit name</label>
+                <header style="text-align: center;margin-top: 2em; margin-bottom: 3em;position: relative;">
+                    <h1 id="quizName" class="head" style="margin-inline: 20px;">
+                        <%=quiz.quizName%>
+                    </h1>
+                    <label for="quizName" class="changers" style="font-size: x-large;"><i
+                            class="fa fa-edit"></i></label>
+                </header>
+                <div>
+                    <%if (flash !="" ){%>
+                        <div class="alert alert-danger" role="alert">
+                            <%=flash%>
+                        </div>
+                        <%}%>
+                </div>
+
                 <% quiz.quiz.forEach(el=>{ %>
                     <div class="quiz-box">
-                        <h4 class="h4" id="<%='qn'+i%>">
-                            <%= `Question ${i+1}. ${el.qn}` %>
-                        </h4>
-                        <label class="changers" for="<%='qn'+i%>">
-                            <%=`edit question ${i+1}`%>
-                        </label><br>
-                        <p id="<%='a1'+i%>">
-                            <%= `Option 1. ${el.a1}` %>
-                        </p>
-                        <label class="changers" for="<%='a1'+i%>">
-                            <%=`edit Option 1`%>
-                        </label><br>
-                        <p id="<%='a2'+i%>">
-                            <%= `Option 2. ${el.a2}` %>
-                        </p>
-                        <label class="changers" for="<%='a2'+i%>">
-                            <%=`edit Option 2`%>
-                        </label><br>
-                        <p id="<%='a3'+i%>">
-                            <%= `Option 3. ${el.a3}` %>
-                        </p>
-                        <label class="changers" for="<%='a3'+i%>">
-                            <%=`edit Option 3`%>
-                        </label><br>
-                        <p id="<%='a4'+i%>">
-                            <%= `Option 4. ${el.a4}` %>
-                        </p>
-                        <label class="changers" for="<%='a4'+i%>">
-                            <%=`edit Option 4`%>
-                        </label><br>
-                        <p id="<%='corr'+i%>">
-                            <%= `correct answer '${el.corr}' ` %>
-                        </p>
-                        <label class="changers" for="<%='corr'+i%>">
-                            <%=`edit correct answer`%>
-                        </label><br>
+                        <div class="card mb-3" style="width: 100%;">
+                            <div class="card-header">
+                                <h4 class="h4" id="<%='qn'+i%>">
+                                    <%= `Question ${i+1}. ${el.qn}` %>
+                                </h4>
+                                <label class="changers" for="<%='qn'+i%>">
+                                    <i class="fa fa-edit"></i>
+                                </label>
+                            </div>
+                            <div class="card-body">
+                                <div class="option">
+                                    <p id="<%='a1'+i%>">
+                                        <%= `Option 1. ${el.a1}` %>
+                                    </p>
+                                    <label class="changers" for="<%='a1'+i%>">
+                                        <i class="fa fa-edit"></i>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <p id="<%='a2'+i%>">
+                                        <%= `Option 2. ${el.a2}` %>
+                                    </p>
+                                    <label class="changers" for="<%='a2'+i%>">
+                                        <i class="fa fa-edit"></i>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <p id="<%='a3'+i%>">
+                                        <%= `Option 3. ${el.a3}` %>
+                                    </p>
+                                    <label class="changers" for="<%='a3'+i%>">
+                                        <i class="fa fa-edit"></i>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <p id="<%='a4'+i%>">
+                                        <%= `Option 4. ${el.a4}` %>
+                                    </p>
+                                    <label class="changers" for="<%='a4'+i%>">
+                                        <i class="fa fa-edit"></i>
+                                    </label>
+                                </div>
+                                <div class="option">
+                                    <p id="<%='corr'+i%>">
+                                        <%= `correct answer '${el.corr}' ` %>
+                                    </p>
+                                    <label class="changers" for="<%='corr'+i%>">
+                                        <i class="fa fa-edit"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <%if (quiz.quiz.length> 1){%>
+                                <input type="submit" class="btn btn-danger btn-sm" value="Delete this Question"
+                                    formaction="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>/delete/<%=i%>">
+                                <%}%>
+                        </div>
                     </div>
-                    <%if (quiz.quiz.length> 1){%>
-                        <input type="submit" value="Delete this"
-                            formaction="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>/delete/<%=i%>">
-                        <%}%>
-                            <% i++}) %>
-                                <br><br>
-                                <input type="submit" value="Save Changes">
-                                <input type="submit" value="Delete"
-                                    formaction="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>/delete">
+                    <% i++}) %>
+                        <br><br>
+                        <div>
+                            <input type="submit" class="btn btn-success" value="Save Changes" style="width: 49%;">
+
+                            <input type="submit" class="btn btn-danger" value="Delete Quiz"
+                                style="width: 49%;float: right;"
+                                onclick="return confirm('Click on okay, if your certain to Delete this Quiz')"
+                                formaction="/edit_quiz/<%=quizId%>/<%=quiz.fetchingId%>/delete">
+                        </div>
             </form>
+            <a href="/quiz/<%=quizId%>/<%=quiz.fetchingId%>"><button class="btn btn-secondary"
+                    style="width: 100%; margin-top: 10px;">back</button></a>
+            <footer style="margin-bottom: 3em;"></footer>
     </div>
 </body>
 <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

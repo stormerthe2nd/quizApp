@@ -1,19 +1,23 @@
 
 $(document).ready(function () {
-    console.log("starting script")
-    var storeTxt = null
-    var storeEl = null
-    var id = null
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
     $(".changers").click(function () {
-        if ($(this).text() != "cancel") {
-            storeTxt = $(this).text()
-            id = $(this).attr("for")
-            storeEl = $(`#${id}`)[0].outerHTML
-            $(`#${id}`).replaceWith(`<input id=${id} name=${id} type='text' required='true'></input>`)
-            $(this).text("cancel")
+        if ($(this).html() != `<i class="fa fa-times"></i>`) {
+            this.customs = { id: null, storeEl: null }
+            this.customs.id = $(this).attr("for")
+            this.customs.storeEl = $(`#${this.customs.id}`)[0].outerHTML
+            $(`#${this.customs.id}`).replaceWith(`<input class="form-control form-control-sm" style="width:70%" id=${this.customs.id} name=${this.customs.id} type='text' placeholder="${$(this.customs.storeEl).text().trim()}" required='true'></input>`)
+            inputInDisplay = true
+            $(this).html(`<i class="fa fa-times"></i>`)
         } else {
-            $(this).text(`${storeTxt}`)
-            $(`#${id}`).replaceWith(storeEl)
+            $(this).html(`<i class="fa fa-edit"></i>`)
+            $(`#${this.customs.id}`).replaceWith(this.customs.storeEl)
+            inputInDisplay = false
         }
 
     })

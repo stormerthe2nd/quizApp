@@ -64,6 +64,8 @@
                 </div>
             </nav>
         </div>
+
+        <!-- your quiz offcanvas -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel"
             style="background-image: linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136)) ;">
@@ -76,6 +78,10 @@
                 <div>
                     All the quizs created by your account can be seen here, click on a particular to explore
                     possibilities
+                </div>
+                <div class="spinner-border text-primary loading-wheel" role="status"
+                    style="display: none;width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
                 <div class="quiz-container-offcanvas">
                     <% your_quiz.forEach((el)=>{ %>
