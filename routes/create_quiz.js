@@ -40,8 +40,7 @@ router.post("/", async function (req, res) {
             $addToSet: { quiz: quizData }
         },
         function (err) {
-            if (err) return res.status(500).redirect('/')
-            return res.redirect("/create_quiz")
+            return res.redirect("/")
         })
 })
 

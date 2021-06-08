@@ -10,12 +10,7 @@ router.post("/", async function (req, res) {
         quiz[i].corr == req.body[i] ? counter++ : {}
     }
     let score = `${counter}|${quiz.length}`
-    res.redirect(`/quiz/${router.quizId}/${router.fetchingId}/${score}`)
-})
-
-router.get('/:quizId/:fetchingId/:score', function (req, res) {
-    let score = req.params.score.split("|")
-    res.render("quiz_completed", { score: score[0], outOf: score[1] })
+    res.json({ score: score })
 })
 
 
