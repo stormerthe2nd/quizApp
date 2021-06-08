@@ -20,13 +20,15 @@ body {
     position: relative;
     display: inleft;
     font-size: large;
+    margin-bottom: 5px;
     margin-top: 5px;
-    overflow: auto;
+    overflow:visible;
 }
 
 .radio-inp{
-    margin-top: 1.3px;
-    margin-right: 7px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    margin-inline: 7px;
 }
 
 .changers{

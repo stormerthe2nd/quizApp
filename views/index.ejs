@@ -11,16 +11,27 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='/stylesheets/indexStyle.css' />
     <link rel='stylesheet' href='/stylesheets/quiz_container.css' />
 </head>
 
 <body>
+    <div class="middle-div">
+        <div class="glowing-border">
+            <h2 class="glow">Quiz Time</h2>
+            <div class="split-line"></div>
+            <p class="username glow">
+                <%=user||"Visitor"%>
+            </p>
+        </div>
+    </div>
     <div class="index-body">
         <div class="index-header">
-            <nav class="navbar navbar-expand-lg navbar-light" style="border-radius: 1em;">
+            <nav class="navbar navbar-expand-lg navbar-light"
+                style="border-radius: 1em;background-image: linear-gradient(to right,rgb(109, 1, 136), rgb(57, 124, 141));">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/" style="font-size:xx-large;">
+                    <a class="navbar-brand" href="/" style="font-size:xx-large; color: lavender;">
                         Quiz App
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -33,82 +44,42 @@
                             <li class="nav-item">
                                 <% if (user){ %>
                                     <a class="nav-link active" aria-current="page"><button type="button"
-                                            id="your-quiz-offcanvas" class="btn btn-outline-dark"
+                                            id="your-quiz-offcanvas" class="btn btn-outline-light"
                                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                                             aria-controls="offcanvasExample">Your
                                             Quiz</button></a>
                                     <% }else{ %>
                                         <a class="nav-link active" aria-current="page" href="/login"><button
-                                                type="button" class="btn btn-outline-dark">Login</button></a>
+                                                type="button" class="btn btn-outline-light">Login</button></a>
                                         <% } %>
                             </li>
                             <li class="nav-item">
                                 <% if (user){ %>
                                     <a class="nav-link active" aria-current="page" href="/logout"><button type="button"
-                                            class="btn btn-outline-dark">Logout</button></a>
+                                            class="btn btn-outline-light">Logout</button></a>
                                     <% }else{ %>
                                         <a class="nav-link active" aria-current="page" href="/register"><button
-                                                type="button" class="btn btn-outline-dark">Register</button></a>
+                                                type="button" class="btn btn-outline-light">Register</button></a>
                                         <% } %>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/create_quiz"><button type="button"
-                                        class="btn btn-outline-dark">Create</button></a>
+                                        class="btn btn-outline-light">Create</button></a>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-info" type="submit">Search</button>
-                        </form>
+                        <div class="d-flex">
+                            <input class="form-control me-2" type="search" id="search-inp" placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-dark" data-bs-toggle="offcanvas" id="search-btn"
+                                data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" type="submit"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
                     </div>
                 </div>
             </nav>
         </div>
-
-        <!-- your quiz offcanvas -->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel"
-            style="background-image: linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136)) ;">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">All Your Quizs</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div>
-                    All the quizs created by your account can be seen here, click on a particular to explore
-                    possibilities
-                </div>
-                <div class="spinner-border text-primary loading-wheel" role="status"
-                    style="display: none;width: 3rem; height: 3rem;">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="quiz-container-offcanvas">
-                    <% your_quiz.forEach((el)=>{ %>
-                        <div class="card text-dark bg-light mb-3 quiz-objects-offcanvas"
-                            onclick="location.href=`/quiz/<%=el.quizId%>/<%=el.fetchingId%>`">
-                            <div class="card-body quiz-box">
-                                <h5 class="card-title"></h5>
-                                <p class="card-text"></p>
-                            </div>
-                            <div class="card-header" style="text-align: center;">
-                                <%=el.quizName%>
-                            </div>
-                        </div>
-                        <% }) %>
-                </div>
-            </div>
-        </div>
-
-        <div class="middle-div">
-            <h2>Welcome to Quiz App</h2>
-            <div class="split-line"></div>
-            <p class="username">
-                <%=user%>
-            </p>
-        </div>
         <div style="text-align: center;">
-            <p style="font-size: large;font-family:cursive;">Here are some random Quizs to play</p>
+            <p style="font-size: x-large;color: cornsilk;font-family:cursive;">Here are some random Quizs to play</p>
         </div>
         <br><br>
         <div class="quiz-container">
@@ -126,7 +97,55 @@
                 <% }) %>
         </div>
     </div>
+    <!-- your quiz offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"
+        style="background-image: linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136)) ;">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">All Your
+                Quizs</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div style="color: lavender;font-size: large;">
+                All the quizs created by your account can be seen here, click on a particular to explore
+                possibilities
+            </div>
+            <div class="spinner-border text-primary loading-wheel" role="status"
+                style="display: none;width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="quiz-container-offcanvas">
+                <% your_quiz.forEach((el)=>{ %>
+                    <div class="card text-dark bg-light mb-3 quiz-objects-offcanvas"
+                        onclick="location.href=`/quiz/<%=el.quizId%>/<%=el.fetchingId%>`">
+                        <div class="card-body quiz-box">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
+                        </div>
+                        <div class="card-header" style="text-align: center;">
+                            <%=el.quizName%>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
 
+    <!-- seatch offcanvas -->
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel"
+        style="background-image: linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136)) ;height: 50%;">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel"></h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body small">
+            <div class="spinner-border text-primary loading-wheel-r" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="quiz-container-offcanvas-r"></div>
+        </div>
+    </div>
+    <footer style="margin-bottom:3em;"></footer>
 
 </body>
 <script>
