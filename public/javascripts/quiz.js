@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $("#submit").click(function (event) {
         event.preventDefault()
-        $(".modal-body").empty()
         var formData = {}
         $("form input").each(function () {
             var input = $(this);
@@ -16,11 +15,7 @@ $(document).ready(function () {
             data: formData,
             async: false,
             success: function (res, textStatus, jqXHR) {
-                $(`
-                <div class="alert alert-success" style="text-align:center;" role="alert">
-                    you have chosen ${res.score.split("|")[0]} correct questions out of ${res.score.split("|")[1]}
-                </div>
-                `).appendTo(".modal-body")
+                $(`#success`).text(`you have chosen ${res.score.split("|")[0]} correct questions out of ${res.score.split("|")[1]}`)
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR);

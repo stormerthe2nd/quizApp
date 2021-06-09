@@ -36,11 +36,6 @@ $(document).ready(function () {
             }
         });
     })
-    $(".quiz-box").mouseenter(function () {
-        $(this).css({ "animation-name": "example", "background-image": "linear-gradient(#ff00cc,#333399" })
-    }).mouseleave(function () {
-        $(this).css({ "animation-name": "none", "background-image": "linear-gradient(rgb(111, 125, 206),rgb(170, 16, 137))" })
-    })
 
     $("#search-btn").click(function () {
         var keyword = $("#search-inp").val()
@@ -74,17 +69,22 @@ $(document).ready(function () {
                         <div class="card-body quiz-box">
                             <h5 class="card-title"></h5>
                             <p class="card-text"></p>
-                        </div >
-                        <div class="card-header" style="text-align: center;">
+                            </div >
+                            <div class="card-header" style="text-align: center;">
                             ${el.quizName}
-                        </div>
-                    </div >
-                    `).appendTo(".quiz-container-offcanvas-r")
+                            </div>
+                            </div >
+                            `).appendTo(".quiz-container-offcanvas-r")
                 })
             },
             complete: function () {
                 $(`.loading-wheel-r`).css({ "display": "none" })
             }
         })
+    })
+    $(".quiz-box").mouseenter(function () {
+        $(this).css({ "animation-name": "example", "background-image": "linear-gradient(to bottom, rgb(57, 124, 141),rgb(109, 1, 136))" })
+    }).mouseleave(function () {
+        $(this).css({ "animation-name": "none", "background-image": "url(https://source.unsplash.com/300x300/?nature)" })
     })
 });

@@ -43,7 +43,7 @@ router.post("/:quizId/:fetchingId", extractQuiz, async function (req, res) {
         }
     })
     if (invalidCorr) {
-        req.flash("invalidCorr", "Correct Option is Supposed to be 1 of the 4 given Options")
+        req.flash("invalidCorr", "Correct Option is Supposed to be equal to 1 of the 4 given Options")
         return res.redirect(`/edit_quiz/${quizId}/${fetchingId}`)
     }
     var model = await quizModel.findOne({ _id: quizId })
