@@ -1,5 +1,27 @@
-// TODO your quiz offcanvas does not animate
 $(document).ready(function () {
+    function getOS() {
+        var userAgent = window.navigator.userAgent,
+            platform = window.navigator.platform,
+            macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+            windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+            iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+            os = null;
+
+        if (macosPlatforms.indexOf(platform) !== -1) {
+            os = 'Mac OS';
+        } else if (iosPlatforms.indexOf(platform) !== -1) {
+            os = 'iOS';
+        } else if (windowsPlatforms.indexOf(platform) !== -1) {
+            os = 'Windows';
+        } else if (/Android/.test(userAgent)) {
+            os = 'Android';
+        } else if (!os && /Linux/.test(platform)) {
+            os = 'Linux';
+        }
+
+        return os;
+    }
+    if (getOS == "Android") { $(".middle-div").css("background-image", "linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136))") }
     $("#your-quiz-offcanvas").click(function () {
         $(".quiz-container-offcanvas").empty()
         $.ajax({
