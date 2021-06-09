@@ -21,7 +21,9 @@ $(document).ready(function () {
 
         return os;
     }
-    if (getOS() == "Android") { $(".middle-div").css("background-image", "none") }
+    if (getOS() == "Android") { $(".middle-div").css("background-image", "none") } else {
+        $(".middle-div").css("background-image", "url(https://images.unsplash.com/photo-1494587351196-bbf5f29cff42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1502&q=80)")
+    }
     $("#your-quiz-offcanvas").click(function () {
         $(".quiz-container-offcanvas").empty()
         $.ajax({
