@@ -24,7 +24,7 @@ router.get('/', fetchDbMiddleware, function (req, res) {
 router.get("/search/:keyword", fetchDbMiddleware, function (req, res) {
     var quizData = res.locals.quizData
     var resultArr = []
-    quizData.forEach(el => { el.quizName.includes(req.params.keyword) ? resultArr.push(el) : {}; })
+    quizData.forEach(el => { el.quizName.toLowerCase().includes(req.params.keyword.toLocaleLowerCase()) ? resultArr.push(el) : {}; })
     res.json(resultArr)
 })
 

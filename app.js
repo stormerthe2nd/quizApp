@@ -47,8 +47,9 @@ app.use(session({
 }))
 app.use(flash())
 app.use(function (req, res, next) {
+    var unrestrictedPaths = ["/", "/register", "/login"]
     if (!req.session.user) {
-        (req.path == "/" || req.path == "/register" || req.path == "/login") ? next() : res.redirect("/login")
+        (unrestrictedPaths.includes(req.path) || req.path.startsWith("/search") || req.path.startsWith("/quiz")) ? next() : res.redirect("/login")
     } else {
         (req.path == "/register" || req.path == "/login") ? res.redirect("/") : next()
     }
