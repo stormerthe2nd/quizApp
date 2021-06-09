@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         return os;
     }
-    if (getOS == "Android") { $(".middle-div").css("background-image", "linear-gradient(to right, rgb(57, 124, 141),rgb(109, 1, 136))") }
+    if (getOS() == "Android") { $(".middle-div").css("background-image", "none") }
     $("#your-quiz-offcanvas").click(function () {
         $(".quiz-container-offcanvas").empty()
         $.ajax({
