@@ -1,3 +1,16 @@
+document.onreadystatechange = function () {
+    var state = document.readyState
+    if (state == 'interactive') {
+        document.getElementById('contents').style.visibility = "hidden";
+    } else if (state == 'complete') {
+        setTimeout(function () {
+            document.getElementById('interactive');
+            document.getElementById('load').style.visibility = "hidden";
+            document.getElementById('contents').style.visibility = "visible";
+        }, 1000);
+    }
+}
+
 $(document).ready(function () {
     function getOS() {
         var userAgent = window.navigator.userAgent,
@@ -22,9 +35,11 @@ $(document).ready(function () {
         return os;
     }
     if (getOS() == "Android" || getOS() == "iOS") {
-        $("h2").removeClass("glow")
-        $("div").removeClass("glowing-border")
-        $("p").removeClass("glow")
+        $("h2").addClass("notransition")
+        $("#usr").addClass("notransition")
+    } else {
+        $("h2").addClass("glow")
+        $("#usr").addClass("glow")
     }
     $("#your-quiz-offcanvas").click(function () {
         $(".quiz-container-offcanvas").empty()
